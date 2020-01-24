@@ -353,7 +353,7 @@ app.use('/GeoNode', function(req, res)
       
       const start = req.query.start;
       const end = req.query.end;
-      const url ="https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + start + "&destinations="+end+"&key=AIzaSyDZ13d14cXk3VnljJtKLnMsJaut4JMElu0" + "&departure_time=now";
+      const url ="https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + start + "&destinations="+end+"&key=" + "&departure_time=now";
       
       https.get(url, (resp) =>
       {
