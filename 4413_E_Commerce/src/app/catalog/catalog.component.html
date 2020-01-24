@@ -1,0 +1,7 @@
+<h1>Catalog</h1>
+<ul *ngFor="let category of catalogList">
+    <a [title]="'expand '  + category.name  + ' category'" [routerLink]="['/category', category.name]">
+        <li>{{category.name}}</li>
+    </a>
+    
+</ul>

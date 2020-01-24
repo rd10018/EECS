@@ -1,0 +1,31 @@
+<h1 style="color : red">Cart</h1>
+<div *ngIf="isShipping()">
+    <h4><u><b>Shipping Details: </b></u></h4>
+    <ul *ngFor="let item of shippingDetails | keyvalue : originalOrder">
+        <p>{{item.key}} --> {{item.value}}</p>
+    </ul>
+</div>
+<hr/>
+<h4><u><b>Cart items:</b></u></h4>
+<ul *ngFor="let item of cart">
+    <li>Name : {{item.name}}</li>
+    <li>Id : {{item.id}}</li>
+    <li>
+        Quantity : {{item.qty}}
+        <input size="3" type="text" #myId (blur)="updateQuantity(item , myId.value) ; myId.value = ''">
+        <button>Update Quantity</button>
+    </li>
+    <li>Price : {{item.price}}</li>
+    <li>Extended Price : {{item.extended_price}}</li>
+    <hr/>
+</ul>
+<hr/>
+<div *ngIf="isShipping()">
+    <button (click)="backendUpdateStock()" [routerLink]="['/checkout']" >Checkout</button>
+</div>
+<div *ngIf="!isShipping()">
+    <button [routerLink]="['/shipping']" >Checkout shipping</button>
+</div>
+
+<button [routerLink]="['/catalog']">Continue Shopping</button>
+<hr/>
