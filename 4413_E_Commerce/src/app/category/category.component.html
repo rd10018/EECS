@@ -1,0 +1,6 @@
+<h2>{{categoryName}}</h2>
+<ul *ngFor="let product of categoryList">
+    <a [title]="product.name +  ' description'" [routerLink]="['/product' , product.name]" >
+        <li>{{product.name}}</li>
+    </a>
+</ul>

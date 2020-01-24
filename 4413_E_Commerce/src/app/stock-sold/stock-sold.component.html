@@ -1,0 +1,10 @@
+
+<div *ngIf="isPrintDetails()">
+    <ul *ngFor="let i of sessionCartDb  ">
+        <li>Session ID  ::  {{i["sessionId"]}}</li>
+        <li>Cart :: {{i["cart"]}}</li>
+        <li>Shipping Details :: {{i["shipping"]}}</li>
+        <p>---------------------------------------------------------------</p>
+    </ul>
+</div>
+

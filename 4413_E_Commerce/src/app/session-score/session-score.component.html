@@ -1,0 +1,13 @@
+<h2>Session Score Calculator</h2>
+<form #myForm="ngForm" [formGroup]="score" (ngSubmit)="onSubmit(myForm.value) ">
+    <label for="user_score">
+        Enter Your number (1,2,3,4 or 5)
+    </label>
+    <input type="text" size=3 formControlName="user_score" >
+    <button type="submit">Submit your score</button>
+</form>
+
+<p>This is your total score : {{totalScore}} </p> 
+<p>This is the total score of the website : {{websiteTotalScore}}</p>
+<button type="submit" (click)="onSubmit()">Get session</button>
+

@@ -1,0 +1,45 @@
+<div style="float : left ;">
+    <h1>Checkout</h1>
+    <hr/>
+    <h2>Shipping Details:</h2>
+    <ul *ngFor="let item of shippingDetails | keyvalue : originalOrder">
+        <p> <b><u>{{item.key}}</u></b> --> {{item.value}}</p>
+    </ul>
+    <hr />
+    <h4><u><b>Cart items:</b></u></h4>
+    <ul *ngFor="let item of cart">
+        <li>Name : {{item.name}}</li>
+        <li>Id : {{item.id}}</li>
+        <li>Quantity : {{item.qty}}</li>
+        <li>Price : {{item.price}}</li>
+        <li>Extended Price : {{item.extended_price}}</li>
+        <hr />
+    </ul>
+    <hr />
+    <h2>Total Amount: <b> {{totalSum}} </b>
+    <br/>
+    <!-- <p>Here is your total sum : {{totalSum}}</p> -->
+    <p>Here is the discount on your amount : {{discountApplied}} </p>
+    <p>This is your amount after discount : {{afterDiscountAmount}}</p>
+    
+    <p>taxes applied (13%) : {{tax}}</p>
+    <p>Here is your final Amount : {{finalAmountWithTax}}</p>
+    </h2>
+
+
+</div>
+<div style="float: right;">
+    <p>Here are all of the available discounts on the total amount:</p>
+    <ol>
+        <li>0 < total <=2000 , discount=10%</li> 
+        <li> 2000 < total <=5000 , discount=20%</li>
+         <li> 5000 < total <=10000, discount=30%</li> 
+        <li>10000 < total <=20000 , discount=40%</li>
+        <li>20000 < total  , discount=50%</li>
+     </ol>
+
+
+</div>
+
+
+<!-- <h2>Total distance = {{distance}}</h2> -->

@@ -1,0 +1,10 @@
+<h2>{{productName}}</h2>
+<ul *ngFor="let item of productSpec">
+    <li>Name : {{item.name}}</li>
+    <li>Id : {{item.id}}</li>
+    <li>Description : {{item.description}}</li>
+    <li>Quantity : {{item.qty}}</li>
+    <li>Price : {{item.cost}}</li>
+    <li>Msrp : {{item.msrp}}</li>
+    <button [routerLink]="['/cart']" (click)="addToCart(item)">Buy It!!</button>
+</ul>

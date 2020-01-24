@@ -1,0 +1,88 @@
+<!-- app.component.html -->
+
+<div class="container">
+    <h1>
+        {{title}}
+    </h1>
+    <form [formGroup]="shippingForm" novalidate (ngSubmit)="onSubmit(shippingForm.value)">
+         <div class=" form-group">
+            <label>Recipient Name:</label>
+            <input class="form-control" formControlName="recipientName" type="text">
+         </div>    
+        <div *ngIf="shippingForm.controls['recipientName'].invalid && (shippingForm.controls['recipientName'].dirty || shippingForm.controls['recipientName'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="shippingForm.controls['recipientName'].errors.required">
+                Recipient Name is required.
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Street Address 1:</label>
+            <input class="form-control" formControlName="streetAddress1" type="text">
+        </div>
+        <div *ngIf="shippingForm.controls['streetAddress1'].invalid && (shippingForm.controls['streetAddress1'].dirty || shippingForm.controls['streetAddress1'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="shippingForm.controls['streetAddress1'].errors.required">
+                this field is required.
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label>Street Address 2:</label>
+            <input class="form-control" formControlName="streetAddress2" type="text">
+        </div>
+
+        <div class="form-group">
+            <label>City:</label>
+            <input class="form-control" formControlName="city" type="text">
+        </div>
+        <div *ngIf="shippingForm.controls['city'].invalid && (shippingForm.controls['city'].dirty || shippingForm.controls['city'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="shippingForm.controls['city'].errors.required">
+                city name is required.
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label>Province:</label>
+            <input class="form-control" formControlName="province" type="text">
+        </div>
+        <div *ngIf="shippingForm.controls['province'].invalid && (shippingForm.controls['province'].dirty || shippingForm.controls['province'].touched) "
+            class="alert alert-danger">
+            <div *ngIf="shippingForm.controls['province'].errors.required">
+                Province name is required (Ex: Ontario / ON). 
+            </div>
+            
+        </div>
+
+
+        <div class="form-group">
+            <label>Postal/Zip:</label>
+            <input class="form-control" formControlName="postal" type="text">
+        </div>
+        <div *ngIf="shippingForm.controls['postal'].invalid && (shippingForm.controls['postal'].dirty || shippingForm.controls['postal'].touched) && !shippingForm.controls['postal'].errors.postalValidator"
+            class="alert alert-danger">
+            <div *ngIf="shippingForm.controls['postal'].errors.required">
+                Postal/Zip is required .
+            </div>
+            <div *ngIf="shippingForm.controls['postal'].errors.myERR">
+                Enter postal code in the following format Example :  M5B1Z2 / M5B 1Z2  / 11111-2222
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label>Delivery Instructions (optional):</label>
+            <input class="form-control" formControlName="deliveryInstructions" type="text">
+        </div> 
+
+        <button type="submit" [disabled]="shippingForm.pristine || shippingForm.invalid" class="btn btn-success">
+            Save
+        </button>
+    </form>
+    <br />
+
+    <!-- <p>Form value: {{ shippingForm.value | json }}</p>
+        <p>Form status: {{ shippingForm.status | json }}</p> -->
+</div>
