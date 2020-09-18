@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Chat App</title>
+    <!-- <link rel="icon" href="/public/img/favicon.png"> -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div>
+<form action="/uploadFile" method="POST" enctype="multipart/form-data">
+    Select file to upload:
+    <input type="file" name="fileToUpload" id="fileToUpload">
+    <input type="submit"  value="Upload File" name="submit">
+</form>
+    </div>
+    <div class="centered-form">
+        <div class="centered-form__box">
+            <h1>Select your category</h1>
+            <form action="/joinForm" method="POST">
+                <!-- <label>Select your category</label> -->
+                <select name="category">
+                    <option>Admin Login</option>
+                    <option>Helpdesk Dashboard</option>
+                    <option>Client Login</option>
+                </select>
+                <button>Join</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
